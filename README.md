@@ -6,8 +6,6 @@
 The **Verifier** is a Node.js + Express backend API for a full-stack Web3 application.  
 It receives signed messages from the frontend, verifies the signature using [ethers.js](https://docs.ethers.org/), and returns the verification result.
 
----
-
 ## Features & Capabilities
 
 - **REST API** for signature verification.
@@ -16,7 +14,6 @@ It receives signed messages from the frontend, verifies the signature using [eth
 - **Robust error handling** for missing or invalid input.
 - **No database required**; stateless and lightweight.
 
----
 
 ## API Endpoint
 
