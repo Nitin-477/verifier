@@ -1,32 +1,19 @@
 import express from 'express'
 import cors from 'cors'
-import { ethers } from 'ethers'
+import { verifySignature } from './src/controllers/signatureController.js'
+import { errorHandler } from './src/middleware/errorHandler.js'
 
 const app = express()
+
 app.use(cors())
 app.use(express.json())
 
-app.post('/verify-signature', (req, res) => {
-  const { message, signature } = req.body
-  if (!message || !signature) {
-    return res.status(400).json({ error: 'Missing message or signature' })
-  }
-  try {
-    const signer = ethers.verifyMessage(message, signature)
-    // Optionally, you can check if the signature is valid by comparing with an expected address
-    res.json({
-      isValid: !!signer,
-      signer,
-      originalMessage: message,
-    })
-  } catch (err) {
-    res.json({
-      isValid: false,
-      signer: null,
-      originalMessage: message,
-      error: err.message,
-    })
-  }
+app.post('/verify-signature', verifySignature)
+
+app.use(errorHandler)
+
+app.use((req, res) => {
+  res.status(404).json({ error: { message: 'Not Found', status: 404 } })
 })
 
 const PORT = process.env.PORT || 3001
