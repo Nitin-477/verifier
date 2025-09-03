@@ -1,6 +1,5 @@
 # Verifier API
 
----
 
 ## Overview
 
