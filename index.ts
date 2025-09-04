@@ -5,17 +5,13 @@ import { errorHandler } from './src/middleware/errorHandler.js';
 
 const app = express();
 
-// Middleware
 app.use(cors());
 app.use(express.json());
 
-// Routes
 app.post('/verify-signature', verifySignature);
 
-// Error handling middleware (must be after routes)
 app.use(errorHandler);
 
-// 404 handler (must be last)
 app.use((_req: Request, res: Response) => {
   res.status(404).json({ 
     error: { 
@@ -25,7 +21,7 @@ app.use((_req: Request, res: Response) => {
   });
 });
 
-const PORT = process.env.PORT ? Number(process.env.PORT) : 3001;
+const PORT = process.env.PORT ? Number(process.env.PORT) : 3000;
 
 app.listen(PORT, () => {
   console.log(`Verifier backend running on port ${PORT}`);

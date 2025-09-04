@@ -1,6 +1,4 @@
 import { Request, Response, NextFunction } from 'express';
-
-// Define error interface for better type safety
 interface AppError extends Error {
   status?: number;
   statusCode?: number;

@@ -77,7 +77,7 @@ flowchart TD
 
 **Request:**
 ```bash
-curl -X POST http://localhost:3001/verify-signature \
+curl -X POST http://localhost:3000/verify-signature \
   -H "Content-Type: application/json" \
   -d '{"message":"Hello, world!","signature":"0x..."}'
 ```
@@ -119,7 +119,7 @@ verifier/
     ```bash
     npm start
     ```
-    The API will run on [http://localhost:3001](http://localhost:3001).
+    The API will run on [http://localhost:3000](http://localhost:3000).
 
 ---
 
