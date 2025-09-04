@@ -114,10 +114,10 @@ curl -X POST http://localhost:3001/verify-signature \
 
 ```
 verifier/
-├── index.js
 ├── package.json
 ├── README.md
 └── src
+    ├── index.js
     ├── controllers
     │   └── signatureController.js
     └── middleware
