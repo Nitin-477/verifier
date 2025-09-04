@@ -1,7 +1,7 @@
 import express, { Request, Response, NextFunction } from 'express';
 import cors from 'cors';
-import { verifySignature } from './src/controllers/signatureController.js';
-import { errorHandler } from './src/middleware/errorHandler.js';
+import { verifySignature } from './controllers/signatureController.js';
+import { errorHandler } from './middleware/errorHandler.js';
 
 const app = express();
 
