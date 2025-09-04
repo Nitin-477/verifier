@@ -15,7 +15,7 @@
     ```bash
     npm start
     ```
-    The API will run on [http://localhost:3000](http://localhost:3000).
+    The API will run on [http://localhost:3001](http://localhost:3001).
 
 ---
 
@@ -136,7 +136,7 @@ verifier/
     ```bash
     npm start
     ```
-    The API will run on [http://localhost:3000](http://localhost:3000).
+    The API will run on [http://localhost:3001](http://localhost:3001).
 
 ---
 
