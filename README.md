@@ -1,5 +1,23 @@
 # Verifier API
 
+## Setup Instructions
+
+1. **Clone the repository:**
+    ```bash
+    git clone https://github.com/Nitin-477/verifier.git
+    cd verifier
+    ```
+2. **Install dependencies:**
+    ```bash
+    npm install
+    ```
+3. **Start the server:**
+    ```bash
+    npm start
+    ```
+    The API will run on [http://localhost:3000](http://localhost:3000).
+
+---
 
 ## Overview
 
@@ -13,7 +31,6 @@ It receives signed messages from the frontend, verifies the signature using [eth
 - **CORS** enabled for cross-origin requests from frontend apps.
 - **Robust error handling** for missing or invalid input.
 - **No database required**; stateless and lightweight.
-
 
 ## API Endpoint
 
@@ -68,7 +85,6 @@ flowchart TD
   E --> F[Compare both addresses]
   F --> G["Return JSON result: isValid, signer, originalMessage, messageHash"]
   G --> H[Frontend displays result]
-
 ```
 
 ---
@@ -77,7 +93,7 @@ flowchart TD
 
 **Request:**
 ```bash
-curl -X POST http://localhost:3000/verify-signature \
+curl -X POST http://localhost:3001/verify-signature \
   -H "Content-Type: application/json" \
   -d '{"message":"Hello, world!","signature":"0x..."}'
 ```
@@ -100,6 +116,7 @@ curl -X POST http://localhost:3000/verify-signature \
 verifier/
 ├── index.js
 ├── package.json
+├── README.md
 └── src
     ├── controllers
     │   └── signatureController.js
@@ -122,6 +139,16 @@ verifier/
     The API will run on [http://localhost:3000](http://localhost:3000).
 
 ---
+
+
+## Notes on Trade-offs and Potential Improvements
+
+- **Statelessness:** The API is stateless and does not persist any data, which simplifies scaling and deployment but means no audit trail or analytics.
+- **No Authentication:** There is no authentication or rate limiting, which is fine for internal or demo use but not recommended for public endpoints.
+- **Error Handling:** Basic error handling is implemented, but more granular error codes and logging could be added.
+- **Testing:** Adding more comprehensive unit and integration tests would improve reliability.
+- **Extensibility:** The modular structure allows for easy addition of new endpoints or features, such as batch verification or support for other signature schemes.
+- **Security:** Consider adding input validation libraries and monitoring for abuse in production environments.
 
 ## Summary
 
