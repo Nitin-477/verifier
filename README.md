@@ -61,13 +61,14 @@ It receives signed messages from the frontend, verifies the signature using [eth
 
 ```mermaid
 flowchart TD
-    A[Frontend sends {message, signature}] --> B[Verifier API receives request]
-    B --> C[Check for missing fields]
-    C --> D[Recover address from signature]
-    D --> E[Hash message and recover address again]
-    E --> F[Compare both addresses]
-    F --> G[Return JSON result: isValid, signer, originalMessage, messageHash]
-    G --> H[Frontend displays result]
+  A["Frontend sends &#123;message, signature&#125;"] --> B[Verifier API receives request]
+  B --> C[Check for missing fields]
+  C --> D[Recover address from signature]
+  D --> E[Hash message and recover address again]
+  E --> F[Compare both addresses]
+  F --> G["Return JSON result: isValid, signer, originalMessage, messageHash"]
+  G --> H[Frontend displays result]
+
 ```
 
 ---
